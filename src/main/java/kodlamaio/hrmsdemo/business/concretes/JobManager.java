@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import kodlamaio.hrmsdemo.core.utilities.results.*;
+import kodlamaio.hrmsdemo.dataAccess.abstracts.AdvertisementDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public class JobManager implements JobService {
     private JobDao jobDao;
+    private AdvertisementDao advertisementDao;
 
     @Autowired
-    public JobManager(JobDao jobDao) {
+    public JobManager(JobDao jobDao, AdvertisementDao adversitementDao) {
         super();
         this.jobDao = jobDao;
+        this.advertisementDao =adversitementDao;
     }
 
     @Override
@@ -46,5 +49,9 @@ public class JobManager implements JobService {
             return new SuccessResult("Başarıyla İş Eklendi");
         }
     }
+
+
+
+
 
 }

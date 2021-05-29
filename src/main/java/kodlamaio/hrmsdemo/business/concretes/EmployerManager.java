@@ -1,5 +1,6 @@
 package kodlamaio.hrmsdemo.business.concretes;
 
+import kodlamaio.hrmsdemo.business.abstracts.AdvertisementService;
 import kodlamaio.hrmsdemo.business.abstracts.EmployerService;
 import kodlamaio.hrmsdemo.business.abstracts.ValidationService;
 import kodlamaio.hrmsdemo.core.utilities.results.*;
@@ -17,6 +18,7 @@ public class EmployerManager implements EmployerService {
     private EmployerDao employerDao;
     @Autowired
     private ValidationService validationService;
+    private AdvertisementService advertisementService;
 
     public EmployerManager(EmployerDao employerDao, ValidationService validationService) {
         this.employerDao = employerDao;
@@ -40,4 +42,6 @@ public class EmployerManager implements EmployerService {
         }
 
     }
+
+
 }

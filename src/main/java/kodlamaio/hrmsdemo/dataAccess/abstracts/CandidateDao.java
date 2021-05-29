@@ -7,8 +7,13 @@ import java.util.List;
 
 public interface CandidateDao extends JpaRepository<Candidate, Integer> {
 
+
+
     List<Candidate> findAllByEmailAdress(String email);
 
     boolean existsByIdentificationNumber(String Tc);
+
+
+
 
 }

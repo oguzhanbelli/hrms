@@ -13,4 +13,5 @@ public interface JobService {
 
     DataResult<Optional<Job>> getById(int id);
     Result add(Job job);
+
 }
