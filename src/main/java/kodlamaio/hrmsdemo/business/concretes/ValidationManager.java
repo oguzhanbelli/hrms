@@ -2,6 +2,7 @@ package kodlamaio.hrmsdemo.business.concretes;
 
 import kodlamaio.hrmsdemo.adapters.abstracts.IdentityCheckService;
 import kodlamaio.hrmsdemo.business.abstracts.ValidationService;
+import kodlamaio.hrmsdemo.core.utilities.results.ErrorDataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.ErrorResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessResult;
@@ -12,7 +13,15 @@ import kodlamaio.hrmsdemo.entities.concretes.Candidate;
 import kodlamaio.hrmsdemo.entities.concretes.Employer;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class ValidationManager implements ValidationService {
@@ -38,7 +47,7 @@ public class ValidationManager implements ValidationService {
 
 
     @Override
-    public Result mailIdentityExist(Candidate candidate) throws Exception {
+    public Result mailIdentityExist(Candidate candidate)  {
         if (this.userDao.existsByEmailAdress(candidate.getEmailAdress())) {
             return new ErrorResult("Email Adresi Kayıtlı");
         } else if (this.candidateDao.existsByIdentificationNumber(candidate.getIdentificationNumber())) {
@@ -52,7 +61,7 @@ public class ValidationManager implements ValidationService {
 
     @Override
     public Result mailExistEmployer(Employer employer) {
-        if (!this.employerDao.existsEmployerByEmailAdress(employer.getEmailAdress())) {
+        if (!this.userDao.existsByEmailAdress(employer.getEmailAdress())) {
             return new SuccessResult();
 
         } else {
@@ -71,7 +80,7 @@ public class ValidationManager implements ValidationService {
     }
 
     @Override
-    public Result mernisCandidate(Candidate candidate) throws Exception {
+    public Result mernisCandidate(Candidate candidate)  {
         if (identityCheckService.validate(candidate)) {
             return new SuccessResult();
         } else {
@@ -101,5 +110,7 @@ public class ValidationManager implements ValidationService {
             return new SuccessResult();
         }
     }
+
+
 
 }

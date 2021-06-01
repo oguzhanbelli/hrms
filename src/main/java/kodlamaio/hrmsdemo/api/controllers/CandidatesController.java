@@ -33,7 +33,7 @@ public class CandidatesController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody @Valid  Candidate candidate) throws Exception {
+    public Result add(@RequestBody @Valid  Candidate candidate) {
         return this.candidateService.add(candidate);
 
     }

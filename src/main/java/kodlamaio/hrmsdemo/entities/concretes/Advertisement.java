@@ -11,6 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -40,20 +41,26 @@ public class Advertisement {
     @ManyToOne()
     @JoinColumn(name = "employer_id")
     private Employer employer;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "min_salary")
     private int min_salary;
+
     @Column(name = "max_salary")
     private int max_salary;
+
     @Column(name = "many_people")
     private int manyPeople;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")
     private java.util.Date createdDate;
+
     @Column(name = "end_date")
     private java.sql.Date endDate;
+
     @Column(name = "active")
     private boolean active;
 /*

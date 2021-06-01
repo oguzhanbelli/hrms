@@ -3,14 +3,22 @@ package kodlamaio.hrmsdemo.api.controllers;
 import io.swagger.annotations.ApiOperation;
 import kodlamaio.hrmsdemo.business.abstracts.AdvertisementService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
+import kodlamaio.hrmsdemo.core.utilities.results.ErrorDataResult;
 import kodlamaio.hrmsdemo.entities.concretes.Advertisement;
 import kodlamaio.hrmsdemo.entities.dtos.AdvertisementDto;
 import kodlamaio.hrmsdemo.entities.dtos.AdvertisementRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("api/adversitements/")
@@ -32,8 +40,8 @@ public class AdvertisementsController {
 
     @PostMapping("/addAd")
     @ApiOperation(value = "Add AD Method")
-    DataResult<AdvertisementRequestDto> add(@RequestBody AdvertisementRequestDto advertisement) {
-        return this.advertisementService.addAd(advertisement);
+    ResponseEntity<?> add(@Valid @RequestBody AdvertisementRequestDto advertisement) {
+        return ResponseEntity.ok(this.advertisementService.addAd(advertisement)) ;
 
     }
     @GetMapping("/getActive")
@@ -68,4 +76,6 @@ public class AdvertisementsController {
         return this.advertisementService.getAdCustomDate(date);
 
     }
+
+
 }

@@ -26,8 +26,8 @@ public class CandidateManager implements CandidateService {
     }
 
     @Override
-    public Result add(Candidate candidate) throws Exception {
-        var result = Validations.run(validationService.requiredCandidate(candidate), validationService.mailIdentityExist(candidate), validationService.mernisCandidate(candidate));
+    public Result add(Candidate candidate)  {
+        var result = Validations.run( validationService.mailIdentityExist(candidate), validationService.mernisCandidate(candidate));
         if (result != null) {
             return result;
         } else {

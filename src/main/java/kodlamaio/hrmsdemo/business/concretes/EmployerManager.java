@@ -33,7 +33,7 @@ public class EmployerManager implements EmployerService {
 
     @Override
     public Result add(Employer employer) throws NullPointerException {
-        var result = Validations.run(validationService.requiredEmployer(employer),validationService.mailExistEmployer(employer));
+        var result = Validations.run(validationService.mailExistEmployer(employer));
         if (result!= null) {
             return result;
         }else{

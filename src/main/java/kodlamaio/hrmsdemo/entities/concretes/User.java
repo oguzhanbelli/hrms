@@ -27,7 +27,6 @@ public class User {
     private String emailAdress;
 
     @NotBlank(message = "Şifre Alanı Boş olamaz")
-
     @Column(name="password")
     private String password;
     //@OnetoMany(mappedBy = "categories"),

@@ -8,6 +8,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Employer;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,7 +30,7 @@ public class EmployersController {
 
     @PostMapping("/add")
     @ApiOperation("Add Employer")
-    public Result add(@RequestBody Employer employer) {
+    public Result add(@Valid @RequestBody Employer employer) {
 
         return this.employerService.add(employer);
 

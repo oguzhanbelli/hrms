@@ -2,12 +2,12 @@ package kodlamaio.hrmsdemo.business.abstracts;
 
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
-import kodlamaio.hrmsdemo.entities.concretes.Candidate;
+import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 
 import java.util.List;
 
-public  interface CandidateService {
+public interface GraduateService {
 
-    DataResult<List<Candidate>> getAll();
-    Result add (Candidate candidate);
+    DataResult<List<Graduate>> getAll();
+    Result add(Graduate graduate);
 }
