@@ -19,6 +19,7 @@ public class JobExperience {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
     @ManyToOne(targetEntity = Cv.class)
     @JoinColumn(name="cv_id")
     private Cv cv;

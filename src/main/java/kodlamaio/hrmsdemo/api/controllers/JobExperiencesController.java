@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/jobexperience")
 @Api(value = "Job Experience Api documentation")
-public class JobExperienceController {
+public class JobExperiencesController {
 
 
     private JobExperienceService jobExperienceService;
@@ -24,7 +24,7 @@ public class JobExperienceController {
 
 
     @Autowired
-    public JobExperienceController(JobExperienceService jobExperienceService) {
+    public JobExperiencesController(JobExperienceService jobExperienceService) {
         this.jobExperienceService = jobExperienceService;
     }
 

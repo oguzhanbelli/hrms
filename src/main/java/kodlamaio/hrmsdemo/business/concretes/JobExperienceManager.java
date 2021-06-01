@@ -9,9 +9,11 @@ import kodlamaio.hrmsdemo.dataAccess.abstracts.JobExperienceDao;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import kodlamaio.hrmsdemo.entities.concretes.JobExperience;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class JobExperienceManager implements JobExperienceService {
 
 
@@ -24,7 +26,7 @@ public class JobExperienceManager implements JobExperienceService {
 
     @Override
     public DataResult<List<JobExperience>> getAll() {
-        return new SuccessDataResult<List<JobExperience>>(this.jobExperienceDao.findAll(),"Data Listelendi");
+        return new SuccessDataResult<List<JobExperience>>(this.jobExperienceDao.findAll(), "Data Listelendi");
     }
 
     @Override
