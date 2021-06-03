@@ -14,4 +14,6 @@ public interface AdvertisementDao extends JpaRepository<Advertisement,Integer> {
     List<Advertisement> findAllByCreatedDate(Date date);
 
 
+
+
 }

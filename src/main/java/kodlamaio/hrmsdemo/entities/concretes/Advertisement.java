@@ -53,10 +53,10 @@ public class Advertisement {
 
     @Column(name = "many_people")
     private int manyPeople;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
+
+
     @Column(name = "created_date")
-    private java.util.Date createdDate;
+    private LocalDateTime createdDate = LocalDateTime.now();
 
     @Column(name = "end_date")
     private java.sql.Date endDate;

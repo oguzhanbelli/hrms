@@ -1,5 +1,6 @@
 package kodlamaio.hrmsdemo.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,18 +10,20 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "cv_education")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","cv"})
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     @ManyToOne(targetEntity = Cv.class)
     @JoinColumn(name="cv_id")
     private Cv cv;
@@ -42,9 +45,7 @@ public class Education {
     @Column(name = "ended_date")
     private Date endedDate;
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="created_date")
-    private java.util.Date createdDate;
+    @Column(name = "created_date")
+    private LocalDateTime createdDate = LocalDateTime.now();
 
 }

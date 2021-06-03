@@ -8,6 +8,7 @@ import kodlamaio.hrmsdemo.entities.concretes.Cv;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -30,12 +31,23 @@ public class CvsController {
         return this.cvService.getAll();
 
     }
+    @GetMapping("/getallCandidateId")
+    @ApiOperation("Get All Cv")
+    DataResult<List<Cv>> getAll(@RequestParam int id) {
+        return this.cvService.getAllCandidateId(id);
+
+    }
 
     @PostMapping("/add")
     @ApiOperation("Add Graduate")
     public Result add(@Valid @RequestBody Cv cv) {
 
         return this.cvService.add(cv);
+
+    }
+    @PutMapping("/uploadImage")
+    public Result saveImage(@RequestBody MultipartFile file, @RequestParam int cvId) {
+        return this.cvService.saveImage(file, cvId);
 
     }
 }
