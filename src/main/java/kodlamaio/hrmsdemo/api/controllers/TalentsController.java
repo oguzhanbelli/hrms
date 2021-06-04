@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.JobExperience;
 import kodlamaio.hrmsdemo.entities.concretes.Talent;
+import kodlamaio.hrmsdemo.entities.dtos.TalentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +36,7 @@ public class TalentsController {
 
     @PostMapping("/add")
     @ApiOperation("Add Talent")
-    public Result add(@Valid @RequestBody Talent talent) {
+    public Result add(@Valid @RequestBody TalentDto talent) {
 
         return this.talentService.add(talent);
 

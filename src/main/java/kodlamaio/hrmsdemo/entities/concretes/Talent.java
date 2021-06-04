@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Data
 @Entity
@@ -26,9 +27,7 @@ public class Talent {
     private Cv cv;
     @Column(name="talent_title")
     private String talentTitle;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")
-    private Date createdDate;
+    private LocalDateTime createdDate = LocalDateTime.now();
 
 }

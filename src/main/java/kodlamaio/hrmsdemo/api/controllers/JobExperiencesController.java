@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import kodlamaio.hrmsdemo.entities.concretes.JobExperience;
+import kodlamaio.hrmsdemo.entities.dtos.JobExperienceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class JobExperiencesController {
 
     @PostMapping("/add")
     @ApiOperation("Add JobExperience")
-    public Result add(@Valid @RequestBody JobExperience jobExperience) {
+    public Result add(@Valid @RequestBody JobExperienceDto jobExperience) {
 
         return this.jobExperienceService.add(jobExperience);
 

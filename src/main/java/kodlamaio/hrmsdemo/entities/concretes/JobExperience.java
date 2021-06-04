@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -36,9 +37,7 @@ public class JobExperience {
     private Date startedDate;
     @Column(name = "ended_date")
     private Date endedDate;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")
-    private java.util.Date createdDate;
+    private LocalDateTime createdDate = LocalDateTime.now();
 
 }

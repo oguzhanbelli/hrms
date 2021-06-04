@@ -6,6 +6,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Cv;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
+import kodlamaio.hrmsdemo.entities.dtos.CvDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,7 +28,7 @@ public class CvsController {
 
     @GetMapping("/getall")
     @ApiOperation("Get All Graduate")
-    DataResult<List<Cv>> getAll() {
+    DataResult<List<CvDto>> getAll() {
         return this.cvService.getAll();
 
     }

@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Language;
 import kodlamaio.hrmsdemo.entities.concretes.Talent;
+import kodlamaio.hrmsdemo.entities.dtos.LanguageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +36,7 @@ public class LanguagesController {
 
     @PostMapping("/add")
     @ApiOperation("Add Language")
-    public Result add(@Valid @RequestBody Language language) {
+    public Result add(@Valid @RequestBody LanguageDto language) {
 
         return this.languageService.add(language);
 

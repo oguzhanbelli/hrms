@@ -11,6 +11,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Data
 @NoArgsConstructor
@@ -33,9 +34,7 @@ public class Language {
   @Min(value = 1,message = "Minimum 1")
   @Max(value = 5,message = "Maximum 5")
     @Column(name="language_level")
-    private short language_level;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="created_date")
-    private Date createdDate;
+    private short languageLevel;
+    @Column(name = "created_date")
+    private LocalDateTime createdDate = LocalDateTime.now();
 }

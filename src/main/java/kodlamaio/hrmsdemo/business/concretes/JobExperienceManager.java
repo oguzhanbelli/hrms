@@ -1,6 +1,7 @@
 package kodlamaio.hrmsdemo.business.concretes;
 
 import kodlamaio.hrmsdemo.business.abstracts.JobExperienceService;
+import kodlamaio.hrmsdemo.core.utilities.dtoConverter.abstracts.DtoConverterService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
@@ -8,6 +9,9 @@ import kodlamaio.hrmsdemo.core.utilities.results.SuccessResult;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.JobExperienceDao;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import kodlamaio.hrmsdemo.entities.concretes.JobExperience;
+import kodlamaio.hrmsdemo.entities.concretes.Language;
+import kodlamaio.hrmsdemo.entities.dtos.JobExperienceDto;
+import kodlamaio.hrmsdemo.entities.dtos.LanguageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +22,12 @@ public class JobExperienceManager implements JobExperienceService {
 
 
     private JobExperienceDao jobExperienceDao;
+    private DtoConverterService dtoConverterService;
 
     @Autowired
-    public JobExperienceManager(JobExperienceDao jobExperienceDao) {
+    public JobExperienceManager(JobExperienceDao jobExperienceDao, DtoConverterService dtoConverterService) {
         this.jobExperienceDao = jobExperienceDao;
+        this.dtoConverterService = dtoConverterService;
     }
 
     @Override
@@ -30,8 +36,8 @@ public class JobExperienceManager implements JobExperienceService {
     }
 
     @Override
-    public Result add(JobExperience jobExperience) {
-        this.jobExperienceDao.save(jobExperience);
-        return new SuccessResult("Ekleme Başarılı");
+    public DataResult<JobExperienceDto> add(JobExperienceDto jobExperienceDto) {
+        this.jobExperienceDao.save((JobExperience) dtoConverterService.dtoClassConverter(jobExperienceDto, JobExperience.class));
+        return new SuccessDataResult<JobExperienceDto>(jobExperienceDto, "İş Deneyimi Eklendi");
     }
 }
