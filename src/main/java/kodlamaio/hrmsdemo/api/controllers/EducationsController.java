@@ -8,13 +8,14 @@ import kodlamaio.hrmsdemo.entities.concretes.Education;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import kodlamaio.hrmsdemo.entities.dtos.EducationDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/education")
+@RequestMapping(value = "api/education")
 public class EducationsController {
 
     private EducationService educationService;
@@ -31,7 +32,7 @@ public class EducationsController {
 
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add")
     @ApiOperation("Add Education")
     public Result add(@Valid @RequestBody EducationDto education) {
 

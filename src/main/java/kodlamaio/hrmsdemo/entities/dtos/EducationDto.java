@@ -16,7 +16,7 @@ public class EducationDto {
     private int id;
     private int cvId;
     private String schoolName;
-    private int graduategraduateName;
+    private int graduateId;
     private String schoolDepartment;
     private Date startedDate;
     private Date endedDate;

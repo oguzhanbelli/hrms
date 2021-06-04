@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -35,10 +36,8 @@ public class Cv {
     private String description;
     @Column(name = "photo")
     private String photo;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")
-    private java.util.Date createdDate;
+    private LocalDateTime createdDate = LocalDateTime.now();
     @Column(name = "updated_date")
     private Date updatedDate;
     @Column(name = "is_active")

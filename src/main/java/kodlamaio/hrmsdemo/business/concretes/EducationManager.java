@@ -42,7 +42,7 @@ public class EducationManager implements EducationService {
         Education educations = modelMapper.map(educationDto,Education.class);
         educationDao.save(educations);
 
-        return new SuccessDataResult<EducationDto>(educationDto, "İlan Eklendi");
+        return new SuccessDataResult<EducationDto>(educationDto, "Okul Eklendi");
 
     }
     private List<EducationDto> educationToDto(List<Education> educations) {
