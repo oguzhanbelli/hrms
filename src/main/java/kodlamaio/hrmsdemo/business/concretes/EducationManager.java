@@ -25,19 +25,20 @@ import java.util.stream.Collectors;
 public class EducationManager implements EducationService {
 
 
-
     private EducationDao educationDao;
     private ModelMapper modelMapper;
     private DtoConverterService dtoConverterService;
+
     @Autowired
-    public EducationManager(EducationDao educationDao,ModelMapper modelMapper,DtoConverterService dtoConverterService) {
+    public EducationManager(EducationDao educationDao, ModelMapper modelMapper, DtoConverterService dtoConverterService) {
         this.educationDao = educationDao;
         this.modelMapper = modelMapper;
         this.dtoConverterService = dtoConverterService;
     }
+
     @Override
     public DataResult<List<EducationDto>> getAll() {
-        return new SuccessDataResult<List<EducationDto>>(dtoConverterService.dtoConverter(educationDao.findAll(),EducationDto.class), "Data Listelendi");
+        return new SuccessDataResult<List<EducationDto>>(dtoConverterService.dtoConverter(educationDao.findAll(), EducationDto.class), "Data Listelendi");
     }
 
     @Override
@@ -47,6 +48,12 @@ public class EducationManager implements EducationService {
         this.educationDao.save((Education) dtoConverterService.dtoClassConverter(educationDto, Education.class));
         return new SuccessDataResult<EducationDto>(educationDto, "Okul Eklendi");
 
+    }
+
+    @Override
+    public DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int id) {
+        List<Education> education = educationDao.findAllByCvIdOrderByEndedDateDesc(id);
+        return new SuccessDataResult<List<EducationDto>>(dtoConverterService.dtoConverter(education, EducationDto.class));
     }
  /*   private List<EducationDto> educationToDto(List<Education> educations) {
         return educations.stream().map(Education -> modelMapper.map(Education, EducationDto.class)).collect(Collectors.toList());

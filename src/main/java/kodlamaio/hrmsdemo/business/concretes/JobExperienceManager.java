@@ -7,9 +7,8 @@ import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessResult;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.JobExperienceDao;
-import kodlamaio.hrmsdemo.entities.concretes.Graduate;
-import kodlamaio.hrmsdemo.entities.concretes.JobExperience;
-import kodlamaio.hrmsdemo.entities.concretes.Language;
+import kodlamaio.hrmsdemo.entities.concretes.*;
+import kodlamaio.hrmsdemo.entities.dtos.EducationDto;
 import kodlamaio.hrmsdemo.entities.dtos.JobExperienceDto;
 import kodlamaio.hrmsdemo.entities.dtos.LanguageDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +38,11 @@ public class JobExperienceManager implements JobExperienceService {
     public DataResult<JobExperienceDto> add(JobExperienceDto jobExperienceDto) {
         this.jobExperienceDao.save((JobExperience) dtoConverterService.dtoClassConverter(jobExperienceDto, JobExperience.class));
         return new SuccessDataResult<JobExperienceDto>(jobExperienceDto, "İş Deneyimi Eklendi");
+    }
+
+    @Override
+    public DataResult<List<JobExperienceDto>> findAllByCvIdOrderByEndedDate(int id) {
+        List<JobExperience> jobExperiences = jobExperienceDao.findAllByCvIdOrderByEndedDateDesc(id);
+        return new SuccessDataResult<List<JobExperienceDto>>(dtoConverterService.dtoConverter(jobExperiences, JobExperienceDto.class));
     }
 }

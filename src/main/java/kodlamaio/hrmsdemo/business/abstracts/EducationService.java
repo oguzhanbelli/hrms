@@ -11,4 +11,5 @@ import java.util.List;
 public interface EducationService {
     DataResult<List<EducationDto>> getAll();
     DataResult<EducationDto> add(EducationDto education);
+    DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int id);
 }

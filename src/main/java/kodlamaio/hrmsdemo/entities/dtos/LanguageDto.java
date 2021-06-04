@@ -18,7 +18,7 @@ public class LanguageDto {
     @JsonIgnore
     private int id;
     private int cvId;
-    @NotBlank(message = "Dil İsmi Boş Bırakılamaz ")
+    @NotBlank(message = "Dil Adı Boş Bırakılamaz")
     private String languageName;
     @Min(value = 1, message = "min 1")
     @Max(value = 5, message = "max 5")

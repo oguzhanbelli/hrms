@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import kodlamaio.hrmsdemo.entities.concretes.JobExperience;
+import kodlamaio.hrmsdemo.entities.dtos.EducationDto;
 import kodlamaio.hrmsdemo.entities.dtos.JobExperienceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,4 +44,12 @@ public class JobExperiencesController {
         return this.jobExperienceService.add(jobExperience);
 
     }
+
+    @GetMapping("/getCvJobExperiences")
+    @ApiOperation("Get All Education")
+    public DataResult<List<JobExperienceDto>> findAllByCvIdOrderByEndedDate(int id) {
+
+        return this.jobExperienceService.findAllByCvIdOrderByEndedDate(id);
+    }
+
 }

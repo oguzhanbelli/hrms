@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import kodlamaio.hrmsdemo.business.abstracts.EducationService;
 import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.Result;
+import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrmsdemo.entities.concretes.Education;
 import kodlamaio.hrmsdemo.entities.concretes.Graduate;
 import kodlamaio.hrmsdemo.entities.dtos.EducationDto;
@@ -38,6 +39,13 @@ public class EducationsController {
 
         return this.educationService.add(education);
 
+    }
+
+    @GetMapping("/getCvEducations")
+    @ApiOperation("Get All Education")
+    public DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int id) {
+
+        return this.educationService.findAllByCvIdOrderByEndedDate(id);
     }
 
 
