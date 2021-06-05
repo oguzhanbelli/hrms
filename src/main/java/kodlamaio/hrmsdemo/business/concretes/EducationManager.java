@@ -51,8 +51,8 @@ public class EducationManager implements EducationService {
     }
 
     @Override
-    public DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int id) {
-        List<Education> education = educationDao.findAllByCvIdOrderByEndedDateDesc(id);
+    public DataResult<List<EducationDto>> findAllByCvIdOrderByEndedDate(int cvId) {
+        List<Education> education = educationDao.findAllByCvIdOrderByEndedDateDesc(cvId);
         return new SuccessDataResult<List<EducationDto>>(dtoConverterService.dtoConverter(education, EducationDto.class));
     }
  /*   private List<EducationDto> educationToDto(List<Education> educations) {
