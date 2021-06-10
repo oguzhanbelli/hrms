@@ -22,6 +22,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("api/adversitements/")
+@CrossOrigin
 public class AdvertisementsController {
 
     @Autowired

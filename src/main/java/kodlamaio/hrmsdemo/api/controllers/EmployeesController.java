@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/employees")
 @Api("All Employees Methods")
+@CrossOrigin
 public class EmployeesController {
 
 
@@ -37,6 +38,15 @@ public class EmployeesController {
     public ResponseEntity<?> add(@RequestBody @Valid Employee employee) {
 
         return ResponseEntity.ok(this.employeeService.add(employee));
+
+
+    }
+    @PostMapping("/verifyUser")
+    @ApiOperation(value = "Verify Method")
+    public ResponseEntity<?> verifyUser(@Valid @RequestParam("id")int employerId,@RequestParam("verify")boolean
+            verify) {
+
+        return ResponseEntity.ok(this.employeeService.verifyEmployer(employerId,verify));
 
 
     }

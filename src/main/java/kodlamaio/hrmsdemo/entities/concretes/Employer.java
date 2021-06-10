@@ -30,6 +30,9 @@ public class Employer extends User {
     @Column(name = "web_address")
     private String webAddress;
 
+    @Column(name = "verify")
+    private boolean verify=false;
+
 
     @OneToMany(mappedBy = "employerphone")
     private List<EmployerPhone> employerPhones;

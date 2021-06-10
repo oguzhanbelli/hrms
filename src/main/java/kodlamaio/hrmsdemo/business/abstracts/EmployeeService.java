@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.entities.concretes.Employee;
 import java.util.List;
 
 public interface EmployeeService {
+    Result verifyEmployer(int employeeId,boolean verify);
     DataResult<List<Employee>> getAll();
     Result add(Employee employee);
 

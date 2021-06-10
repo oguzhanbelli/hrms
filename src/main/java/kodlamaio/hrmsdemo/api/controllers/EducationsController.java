@@ -28,6 +28,7 @@ public class EducationsController {
 
     @GetMapping("/getall")
     @ApiOperation("Get All Education")
+    @CrossOrigin
     DataResult<List<EducationDto>> getAll() {
         return this.educationService.getAll();
 

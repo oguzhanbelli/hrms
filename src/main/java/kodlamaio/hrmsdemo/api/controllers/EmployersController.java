@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/employers")
 @Api("Employers")
+@CrossOrigin
 public class EmployersController {
     private EmployerService employerService;
 

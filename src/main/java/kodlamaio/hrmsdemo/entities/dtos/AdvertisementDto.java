@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.Column;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Data
 @NoArgsConstructor
@@ -17,9 +19,10 @@ public class AdvertisementDto {
     private String description;
     private String jobName;
     private String manyPeople;
-    private Date createdDate;
+    private LocalDateTime createdDate = LocalDateTime.now();
     private String cityName;
     private java.sql.Date endDate;
+
 
 
 
