@@ -18,6 +18,8 @@ public class AdvertisementDto {
     private String employerCompanyName;//Employer Dto
     private String description;
     private String jobName;
+    private String workingTimeTitle;
+    private String wayOfWorkingTitle;
     private String manyPeople;
     private LocalDateTime createdDate = LocalDateTime.now();
     private String cityName;

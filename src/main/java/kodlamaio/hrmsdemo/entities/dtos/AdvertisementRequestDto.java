@@ -24,6 +24,11 @@ public class AdvertisementRequestDto {
     @NotNull
     private int jobId;
     private int Id;
+
+    @NotNull
+    private int workingTimeId;
+    @NotNull
+    private int wayOfWorkingId;
     @NotBlank
     @NotNull
     private String description;

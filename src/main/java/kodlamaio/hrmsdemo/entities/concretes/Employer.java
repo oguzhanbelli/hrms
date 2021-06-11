@@ -32,10 +32,11 @@ public class Employer extends User {
 
     @Column(name = "verify")
     private boolean verify=false;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-
-    @OneToMany(mappedBy = "employerphone")
-    private List<EmployerPhone> employerPhones;
+/*    @OneToMany(mappedBy = "employerphone")
+    private List<EmployerPhone> employerPhones;*/
 
     @JsonIgnore
     @OneToMany(mappedBy = "employer")
