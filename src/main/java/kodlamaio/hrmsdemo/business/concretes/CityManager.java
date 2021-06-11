@@ -5,12 +5,14 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.CityDao;
 import kodlamaio.hrmsdemo.entities.concretes.City;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class CityManager implements CityService {
     private CityDao cityDao;
+    @Autowired
     public CityManager(CityDao cityDao) {
         this.cityDao = cityDao;
     }

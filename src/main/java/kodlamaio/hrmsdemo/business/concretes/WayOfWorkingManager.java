@@ -7,6 +7,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessResult;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.WayOfWorkingDao;
 import kodlamaio.hrmsdemo.entities.concretes.WayOfWorking;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class WayOfWorkingManager implements WayOfWorkingService {
 
 
     private WayOfWorkingDao wayOfWorkingDao;
-
+    @Autowired
     public WayOfWorkingManager(WayOfWorkingDao wayOfWorkingDao) {
         this.wayOfWorkingDao = wayOfWorkingDao;
     }

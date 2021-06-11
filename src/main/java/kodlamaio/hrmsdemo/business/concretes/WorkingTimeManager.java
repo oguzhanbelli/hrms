@@ -5,6 +5,7 @@ import kodlamaio.hrmsdemo.core.utilities.results.DataResult;
 import kodlamaio.hrmsdemo.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrmsdemo.dataAccess.abstracts.WorkingTimeDao;
 import kodlamaio.hrmsdemo.entities.concretes.WorkingTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class WorkingTimeManager implements WorkingTimeService {
 
     private WorkingTimeDao workingTimeDao;
 
+    @Autowired
     public WorkingTimeManager(WorkingTimeDao workingTimeDao) {
         this.workingTimeDao = workingTimeDao;
     }
