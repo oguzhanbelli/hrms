@@ -39,12 +39,26 @@ public class CvsController {
         return this.cvService.getAllCandidateId(id);
 
     }
+    @GetMapping("/getcvId")
+    @ApiOperation("Get  Cv Id")
+    DataResult<Cv> getCvId(@RequestParam int id) {
+        return this.cvService.getCv(id);
+
+    }
 
     @PostMapping("/add")
-    @ApiOperation("Add Graduate")
+    @ApiOperation("Add Cv")
     public Result add(@Valid @RequestBody Cv cv) {
 
         return this.cvService.add(cv);
+
+    }
+
+    @PutMapping("/updateCv")
+    @ApiOperation("Update Cv")
+    public DataResult<Cv> updateCv(@RequestBody Cv cv) {
+
+        return this.cvService.updateCv(cv);
 
     }
     @PutMapping("/uploadImage")

@@ -39,10 +39,10 @@ public class AdvertisementRequestDto {
     private int manyPeople;
     @NotNull
     @Min(1)
-    private int max_salary;
+    private int maxSalary;
     @NotNull
     @Min(1)
-    private int min_salary;
-    private boolean active;
+    private int minSalary;
+    private boolean active = false;
 
 }

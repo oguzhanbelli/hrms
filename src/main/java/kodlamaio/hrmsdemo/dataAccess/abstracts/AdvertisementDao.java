@@ -7,7 +7,7 @@ import java.sql.Date;
 import java.util.List;
 
 public interface AdvertisementDao extends JpaRepository<Advertisement,Integer> {
-
+    List<Advertisement> findAllByActiveFalseOrderByCreatedDateDesc();
     List<Advertisement> findAllByActiveTrue();
     List<Advertisement> findAllByEmployerIdAndActiveTrue(int id);
     List<Advertisement> findAllByActiveTrueOrderByEndDateDesc();

@@ -51,6 +51,12 @@ public class AdvertisementsController {
         return this.advertisementService.getActive();
 
     }
+    @GetMapping("/getAllPassive")
+    @ApiOperation(value = "get Passive Method")
+    DataResult<List<AdvertisementDto>> getAllPassive() {
+        return this.advertisementService.getAllPassive();
+
+    }
     @GetMapping("/getActiveandEmp")
     @ApiOperation(value = "get emp Method")
     DataResult<List<AdvertisementDto>> getEmpId(@RequestParam int id) {

@@ -55,6 +55,12 @@ public class AdvertisementManager implements AdvertisementService {
     }
 
     @Override
+    public DataResult<List<AdvertisementDto>> getAllPassive() {
+        List<Advertisement> jobAdvertisements = advertisementDao.findAllByActiveFalseOrderByCreatedDateDesc();
+        return new SuccessDataResult<List<AdvertisementDto>>(jobAdvertisementToDto(jobAdvertisements), "Tüm Pasif İlanlar Listelendi");
+    }
+
+    @Override
     public DataResult<List<AdvertisementDto>> getEmpId(int id) {
         List<Advertisement> jobAdvertisements = advertisementDao.findAllByEmployerIdAndActiveTrue(id);
         return new SuccessDataResult<List<AdvertisementDto>>(jobAdvertisementToDto(jobAdvertisements), "Firmaya ait İş ilanları Listelendi");

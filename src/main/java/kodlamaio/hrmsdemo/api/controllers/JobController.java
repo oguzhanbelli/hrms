@@ -13,7 +13,7 @@ import kodlamaio.hrmsdemo.business.abstracts.JobService;
 import kodlamaio.hrmsdemo.entities.concretes.Job;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api/jobposition")
 @Api(value = "Job Api documentation")
 @CrossOrigin
 public class JobController {

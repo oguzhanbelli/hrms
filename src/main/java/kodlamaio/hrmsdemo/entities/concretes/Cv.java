@@ -42,16 +42,16 @@ public class Cv {
     private Date updatedDate;
     @Column(name = "is_active")
     private boolean isActive;
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv" , cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Language> languages;
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv" , cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Talent> talents;
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv" , cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Education> educations;
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cv" , cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<JobExperience> jobExperiences;
 
 }

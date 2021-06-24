@@ -13,6 +13,7 @@ public interface AdvertisementService {
     DataResult<AdvertisementRequestDto> addAd (AdvertisementRequestDto advertisement);
 
     DataResult<List<AdvertisementDto>> getActive();
+    DataResult<List<AdvertisementDto>> getAllPassive();
     DataResult<List<AdvertisementDto>> getEmpId(int id);
     DataResult<List<AdvertisementDto>> getAdDate();
     DataResult<List<AdvertisementDto>> getAdCustomDate(Date date);

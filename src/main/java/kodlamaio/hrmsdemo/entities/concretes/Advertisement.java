@@ -53,10 +53,10 @@ public class Advertisement {
     private String description;
 
     @Column(name = "min_salary")
-    private int min_salary;
+    private int minSalary;
 
     @Column(name = "max_salary")
-    private int max_salary;
+    private int maxSalary;
 
     @Column(name = "many_people")
     private int manyPeople;

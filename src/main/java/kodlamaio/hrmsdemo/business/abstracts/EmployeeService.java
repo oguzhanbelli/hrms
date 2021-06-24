@@ -10,5 +10,6 @@ public interface EmployeeService {
     Result verifyEmployer(int employeeId,boolean verify);
     DataResult<List<Employee>> getAll();
     Result add(Employee employee);
+    Result updateInfo(Employee employee);
 
 }

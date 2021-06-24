@@ -19,7 +19,7 @@ import java.util.List;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
 public class Job {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
 	private int id;
 	@NotBlank(message = "Başlık Alanı Boş olamaz")

@@ -24,7 +24,7 @@ public class AdvertisementDto {
     private LocalDateTime createdDate = LocalDateTime.now();
     private String cityName;
     private java.sql.Date endDate;
-
+    private boolean active;
 
 
 
