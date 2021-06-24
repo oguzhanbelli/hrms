@@ -76,6 +76,10 @@ public class AdvertisementsController {
         return this.advertisementService.updateActive(id,active);
 
     }
+    @GetMapping("/getAllByPage")
+    DataResult<List<AdvertisementDto>> getAll(@RequestParam int pageNo,@RequestParam int pageSize){
+        return this.advertisementService.findAll(pageNo, pageSize);
+    }
 
     @GetMapping("/getAdCustomDate")
     @ApiOperation(value = "get emp Method")

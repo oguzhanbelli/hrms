@@ -9,6 +9,8 @@ import kodlamaio.hrmsdemo.entities.dtos.AdvertisementDto;
 import kodlamaio.hrmsdemo.entities.dtos.AdvertisementRequestDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
@@ -76,6 +78,16 @@ public class AdvertisementManager implements AdvertisementService {
     public DataResult<List<AdvertisementDto>> getAdCustomDate(Date date) {
         List<Advertisement> jobAdvertisements = advertisementDao.findAllByCreatedDate(date);
         return new SuccessDataResult<List<AdvertisementDto>>(jobAdvertisementToDto(jobAdvertisements), "İstenilen Tarihe Göre Sıralandı");
+    }
+
+    @Override
+    public DataResult<List<AdvertisementDto>> findAll(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+        List<Advertisement> jobAdvertisements = (List<Advertisement>) advertisementDao.findAll(pageable).getContent();
+
+
+        return new SuccessDataResult<List<AdvertisementDto>>
+                (jobAdvertisementToDto(jobAdvertisements));
     }
 
     @Override
